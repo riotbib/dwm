@@ -4,7 +4,7 @@ with import <nixpkgs> {};
 
 stdenv.mkDerivation {
   name = "dwm-mydwm";
-  src = lib.cleanSource ./.;
+  src = stdenv.lib.cleanSource ./.;
 
   buildInputs = with xorg; [ libX11 libXinerama libXft ];
 
