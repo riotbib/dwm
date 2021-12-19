@@ -74,6 +74,7 @@ static const char *cmuscmd_next[]    = { "cmus-remote", "-n", NULL };
 static const char *cmuscmd_prev[]    = { "cmus-remote", "-r", NULL };
 static const char *etstatuscmd[]     = { "et-status", NULL };
 static const char *thunarcmd[]       = { "thunar", NULL };
+static const char *dunst_close[]     = { "dunstctl", "close", NULL };
 
 static Key keys[] = {
   /* modifier                     key                       function        argument */
@@ -107,6 +108,7 @@ static Key keys[] = {
   { MODKEY|ShiftMask,             XK_t,                     spawn,          {.v = touchtoggle_cmd } },
   { MODKEY,                       XK_e,                     spawn,          {.v = thunarcmd } },
   { MODKEY|ShiftMask,             XK_e,                     spawn,          {.v = etstatuscmd } },
+  { ControlMask,                  XK_space,                 spawn,          {.v = dunst_close } },
   { 0,                            XF86XK_ScreenSaver,       spawn,          {.v = slockcmd } },
   { 0,                            XF86XK_AudioRaiseVolume,  spawn,          {.v = volcmd_up } },
   { 0,                            XF86XK_AudioLowerVolume,  spawn,          {.v = volcmd_down } },
