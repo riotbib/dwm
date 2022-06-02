@@ -48,6 +48,7 @@ static const Layout layouts[] = {
 
 /* key definitions */
 #define MODKEY Mod4Mask
+#define PrintScreenDWM 0x0000ff61
 #define TAGKEYS(KEY,TAG) \
   { MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
   { MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -72,6 +73,7 @@ static const char *touchtoggle_cmd[] = { "touchpad-toggle", NULL };
 static const char *etstatuscmd[]     = { "et-status", NULL };
 static const char *passmenucmd[]     = { "passmenu", NULL };
 static const char *dunst_close[]     = { "dunstctl", "close", NULL };
+static const char *cmdprintscreen[]  = { "take-screenshot", NULL };
 
 static Key keys[] = {
   /* modifier                     key                       function        argument */
@@ -113,6 +115,7 @@ static Key keys[] = {
   { 0,                            XF86XK_AudioMicMute,      spawn,          {.v = volcmd_mute_mic } },
   { 0,                            XF86XK_MonBrightnessUp,   spawn,          {.v = brightcmd_up } },
   { 0,                            XF86XK_MonBrightnessDown, spawn,          {.v = brightcmd_down } },
+  { 0,                            PrintScreenDWM,           spawn,          {.v = cmdprintscreen } },
   TAGKEYS(                        XK_1,                      0)
   TAGKEYS(                        XK_2,                      1)
   TAGKEYS(                        XK_3,                      2)
