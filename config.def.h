@@ -47,6 +47,7 @@ static const Layout layouts[] = {
 
 /* key definitions */
 #define MODKEY Mod4Mask
+#define PrintScreenDWM 0x0000ff61
 #define TAGKEYS(KEY,TAG) \
   { MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
   { MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -75,6 +76,7 @@ static const char *cmuscmd_prev[]    = { "cmus-remote", "-r", NULL };
 static const char *etstatuscmd[]     = { "et-status", NULL };
 static const char *thunarcmd[]       = { "thunar", NULL };
 static const char *dunst_close[]     = { "dunstctl", "close", NULL };
+static const char *cmdprintscreen[]  = { "take-screenshot", NULL };
 
 static Key keys[] = {
   /* modifier                     key                       function        argument */
@@ -119,6 +121,7 @@ static Key keys[] = {
   { 0,                            XF86XK_AudioPlay,         spawn,          {.v = cmuscmd_play } },
   { 0,                            XF86XK_AudioNext,         spawn,          {.v = cmuscmd_next } },
   { 0,                            XF86XK_AudioPrev,         spawn,          {.v = cmuscmd_prev } },
+  { 0,                            PrintScreenDWM,           spawn,          {.v = cmdprintscreen } },
   TAGKEYS(                        XK_1,                      0)
   TAGKEYS(                        XK_2,                      1)
   TAGKEYS(                        XK_3,                      2)
